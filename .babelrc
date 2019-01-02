@@ -1,0 +1,25 @@
+{
+    "presets": [
+        ["@babel/env",{ "modules": false }]
+    ],
+    "env": {
+        "development": {
+            "plugins": [
+                "jsx-v-model",
+                "transform-vue-jsx",
+                "@babel/plugin-syntax-dynamic-import",
+                "@babel/plugin-transform-runtime",
+                "@babel/plugin-proposal-optional-chaining"
+            ]
+        },
+        "production": {
+            "plugins": [
+                "jsx-v-model",
+                "transform-vue-jsx",
+                "@babel/plugin-syntax-dynamic-import",
+                "@babel/plugin-transform-runtime",
+                "@babel/plugin-proposal-optional-chaining"
+            ]
+        }
+    }
+}

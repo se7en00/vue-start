@@ -1,0 +1,66 @@
+$primary-color: hsl(236, 100%, 66%) !default;//主色 #545EFF
+$lighter-primary-color: hsl(225, 100.0%, 73.5%) !default;
+$lightest-primary-color: hsl(236, 60%, 76%) !default;
+$darker-primary-color: darken($primary-color,2%);
+$darkest-primary-color: darken($primary-color,5%);
+
+$accent-color: #66b1ff; //强调色
+
+$error-color: #f56c6c;
+$base-font-color: #606266;
+$base-border-color: #ccc;
+$white-bg: #fff;
+$body-bg: #F4F8F9;
+//$body-bg: #F4F8F9;
+
+$grey: #AEBECD !default;
+$lightest-grey: #F8F9FA !default;
+$lighter-grey: #D5DDE5 !default;
+$more-light-grey: #D5DDE5 !default;
+$light-grey: #AEBECD !default;
+$darkest-grey: #202833 !default;
+$darker-grey: #404B5A !default;
+$more-dark-grey: #6E7A8A !default;
+$dark-grey: #929FB1 !default;
+
+$color-text-placeholder: #c0c4cc !default;
+$label-font-color: #666;
+$border-color-base:  #dcdfe6 !default;
+$border-hover-color-base: $color-text-placeholder;
+$dropDown-border-color: #e7e9f0;
+
+//sidebar
+$sidebar-bg: $lightest-primary-color;//侧栏背景色
+$sidebar-subItem-bg: transparentize($lighter-primary-color, .3);//侧栏二级菜单背景色
+$sidebar-font-color: #ccc;
+$sidebar-icon-color: #ccc;
+$sidebar-hover-bg: $darker-primary-color;
+$sidebar-hover-font-color: $white-bg;
+$sidebar-hover-icon-color: $white-bg;
+$sidebar-subItem-circle-bg: $white-bg;
+
+//header顶栏
+$header-bg: hsl(236, 96%, 70%) !default;
+$header-font-color: rgba(#fff, 0.7);
+$header-icon-color: rgba(#fff, 0.7);
+$header-active-font-color: #fff;
+$header-active-icon-color: #fff;
+
+//主体
+$main-container-bg: $white-bg;
+$main-container-header-title-color: #fff;
+$main-container-header-title-color: $label-font-color;
+$main-container-header-title-size: 26px;
+$main-container-header-border-bottom-color: #ebeef5; //主体头部下边线
+//面包屑
+$breadCrumb-bg: #fff;
+$breadCrumb-active-link: #DF3E7B;
+
+//dialog
+$dialog-header-border-bottom-color: #ebeef5;
+$dialog-header-title-color: #686f79;
+//login
+$login-bg: $sidebar-bg;
+$login-form-bg: hsla(0,0%,100%,.1);
+
+$table-th-color: $label-font-color;

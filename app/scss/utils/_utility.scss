@@ -1,0 +1,50 @@
+.u-text{
+    &-left {
+        text-align: left !important;
+    }
+    &-center {
+        text-align: center !important;
+    }
+    &-right {
+        text-align: right !important;
+    }
+}
+
+.u-position{
+    &-absolute {
+        position: absolute !important;
+    }
+    &-relative  {
+        position: relative !important;
+    }
+}
+
+.u-full {
+    &-height {
+        height: inherit;
+    }
+    &-width {
+        width: 100% !important;
+    }
+}
+
+.u-vertical-middle {
+    align-items: center !important;
+}
+
+// 边距相关
+$sizes: (0, 5, 10, 15, 20, 30);
+
+@for $index from 1 to 7 {
+    .u-m-#{nth($sizes, $index)} { margin: #{nth($sizes, $index)}px !important; }
+    .u-mt-#{nth($sizes, $index)} { margin-top: #{nth($sizes, $index)}px !important; }
+    .u-mr-#{nth($sizes, $index)} { margin-right: #{nth($sizes, $index)}px !important; }
+    .u-mb-#{nth($sizes, $index)} { margin-bottom: #{nth($sizes, $index)}px !important; }
+    .u-ml-#{nth($sizes, $index)} { margin-left: #{nth($sizes, $index)}px !important; }
+
+    .u-p-#{nth($sizes, $index)} { padding: #{nth($sizes, $index)}px !important; }
+    .u-pt-#{nth($sizes, $index)} { padding-top: #{nth($sizes, $index)}px !important; }
+    .u-pr-#{nth($sizes, $index)} { padding-right: #{nth($sizes, $index)}px !important; }
+    .u-pb-#{nth($sizes, $index)} { padding-bottom: #{nth($sizes, $index)}px !important; }
+    .u-pl-#{nth($sizes, $index)} { padding-left: #{nth($sizes, $index)}px !important; }
+}

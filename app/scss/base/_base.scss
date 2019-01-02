@@ -1,0 +1,70 @@
+html, body, #root, #app {
+    min-height: 100vh !important;
+    height: 100vh;
+}
+
+body {
+    height: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: KaiGenGothicSC-Regular, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+    letter-spacing: 1px;
+    line-height: 2;
+    background: $body-bg;
+}
+
+table:not(.el-table__header) {
+    border-spacing: 0 0.5em !important;
+    tr td:first-child {
+        padding-left: 15px !important;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+    }
+
+    tr td:last-child {
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+}
+.el-table__header-wrapper table tr {
+    text-shadow: 1px 1px 2px #ccc;
+}
+.el-table__body-wrapper table tr {
+    box-shadow: 0 2px 8px -3px rgba(0, 0, 0, 0.21);
+}
+
+.edit-btn {
+    display: inline-block;
+    color: $primary-color;
+    font-size: 16px;
+    &:hover {
+        color: $lighter-primary-color;
+    }
+}
+
+.remove-btn {
+    display: inline-block;
+    color: $error-color;
+    font-size: 16px;
+    &:hover {
+        color: lighten($error-color, 10%);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #a1abb5;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+}
+
