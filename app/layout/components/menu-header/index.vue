@@ -9,7 +9,7 @@
                     ref="headerMenu"
                     @select="handleMenuSelect"
                 >
-                    <template v-for="(menu, menuIndex) in headerMenu">
+                    <template v-for="(menu, menuIndex) in headerMenus">
                         <menu-item :menu="menu" :key="menuIndex"/>
                     </template>
                 </el-menu>
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { headerMenu } from '@/menu/menus'
+import { mapGetters } from 'vuex'
 import MenuItem from '../menu-item'
 import menuMixin from '../../mixin/menu'
 export default {
@@ -35,7 +35,6 @@ export default {
     mixins: [menuMixin],
     data() {
         return {
-            headerMenu,
             active: '',
             isScroll: false,
             scrollWidth: 0,
@@ -43,6 +42,9 @@ export default {
             currentTranslateX: 0,
             throttledCheckScroll: null
         }
+    },
+    computed: {
+        ...mapGetters(['headerMenus'])
     },
     watch: {
         '$route.matched': {
@@ -137,6 +139,7 @@ export default {
                     @extend %flex-center-row;
                     color: $header-font-color;
                     border-bottom: 0 !important;
+                    padding: 0 20px !important;
                     i {
                         color: $header-icon-color !important;
                     }
@@ -144,10 +147,11 @@ export default {
                         display: none !important;
                     }
                     .title {
+                        height: 100%;
+                        line-height: 45px !important;
                         margin: 0 !important;
                         border-bottom: 2px solid;
                         border-bottom-color: transparent;
-                        line-height: 58px !important;
                     }
                     &.is-active, &:not(.is-disabled):hover, &:not(.is-disabled):focus {
                         border-bottom: 0;
@@ -157,7 +161,8 @@ export default {
                             color: $header-active-font-color !important;
                         }
                         .title {
-                            border-bottom-color: #fff;
+                            position: relative;
+                            border-bottom-color: $primary-color;
                             transition: border-bottom-color .3s;
                             /*margin-left: 10px;*/
                         }
@@ -181,7 +186,7 @@ export default {
         }
 
         @include e(prev) {
-            height: 60px;
+            height: 45px;
             position: absolute;
             top: 0;
             left: 0;
@@ -194,7 +199,7 @@ export default {
         }
 
         @include e(next) {
-            height: 60px;
+            height: 45px;
             position: absolute;
             top: 0;
             right: 0;

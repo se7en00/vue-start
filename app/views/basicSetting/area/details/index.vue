@@ -25,20 +25,6 @@
 
             <el-row type="flex" justify="center">
                 <el-col :span="12">
-                    <el-form-item label="省份" >
-                        <el-select multiple style="width: 100%" v-model="areaForm.provinceIdList" placeholder="请选择省份">
-                            <el-option
-                                v-for="(area,index) in province"
-                                :key="index"
-                                :label="area.name"
-                                :value="area.id"/>
-                        </el-select>
-                    </el-form-item>
-                </el-col>
-            </el-row>
-
-            <el-row type="flex" justify="center">
-                <el-col :span="12">
                     <el-form-item label="联系人姓名" prop="linkman">
                         <el-input v-model="areaForm.linkman" placeholder="请输入联系人姓名"></el-input>
                     </el-form-item>
@@ -81,8 +67,7 @@ export default {
                 name: '',
                 code: '',
                 linkman: '',
-                contactNumber: '',
-                provinceIdList: []
+                contactNumber: ''
             },
             rules: {
                 name: [
@@ -101,14 +86,11 @@ export default {
     computed: {
         ...mapGetters(['currentMerchantId']),
         ...mapState({
-            province: state => state.basicSetting.area.province,
             regionOptions: state => state.basicSetting.store.regions
         })
     },
 
     mounted() {
-        this.getProvince({ merchantId: this.currentMerchantId })
-
         if (this.areaId) {
             this.getAreaDetails({ id: this.areaId, merchantId: this.currentMerchantId })
                 .then(res => {
@@ -117,18 +99,12 @@ export default {
                     this.areaForm.contactNumber = res.contactNumber
                     this.areaForm.linkman = res.linkman
                     this.areaForm.id = this.areaId
-                    res.provinceDTOList.map(val => {
-                        this.areaForm.provinceIdList.push(val.id)
-                    })
-                    // this.areaForm.provinceIdList = res.provinceDTOList;
                 })
         }
     },
 
     methods: {
         ...mapActions([
-            'getProvince',
-
             'saveOrUpdateArea',
             'getAreaDetails'
         ]),
@@ -147,10 +123,17 @@ export default {
 
                     this.saveOrUpdateArea({ vm: this, params, isCreate: !this.$route.params.areaId })
                         .then(() => {
-                            this.$message({
-                                message: '添加成功',
-                                type: 'success'
-                            })
+                            if (!this.areaId) {
+                                this.$message({
+                                    message: '添加成功',
+                                    type: 'success'
+                                })
+                            } else {
+                                this.$message({
+                                    message: '保存成功',
+                                    type: 'success'
+                                })
+                            }
                         })
                 } else {
                     return false

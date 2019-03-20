@@ -3,7 +3,7 @@ import * as TYPES from '../mutationTypes'
 
 export default {
     async loadAreaList({ commit }, params) {
-        const list = await Axios.get('/area/v1/list', { params })
+        const list = await Axios.get('/api/areaList', { params })
             .catch(error => Promise.reject(error))
         commit(TYPES.LOAD_AREA_LIST, list)
     },
@@ -13,12 +13,6 @@ export default {
         dispatch('loadAreaList', { merchantId: params.merchantId })
     },
 
-    // 获取省份
-    async getProvince({ commit }, params) {
-        const province = await Axios.get('/region/v1/province/list', { params })
-            .catch(error => Promise.reject(error))
-        commit(TYPES.LOAD_PROVINCE, province)
-    },
     async getAreaDetails({ commit }, params) {
         const areaDetails = await Axios.get('/area/v1/detail', { params: params })
             .catch(error => Promise.reject(error))

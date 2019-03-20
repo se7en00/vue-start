@@ -1,45 +1,31 @@
 const account = {
     'GET /api/user': {
         id: 1,
-        username: 'test',
-        password: 'test'
+        username: 'admin',
+        password: 'admin'
     },
 
-    'GET /api/users': [
-        {
-            id: 1,
-            username: 'kenny',
-            accountName: '大龙'
-        }, {
-            id: 2,
-            username: 'test',
-            accountName: '中龙'
-        }, {
-            id: 3,
-            username: 'seven',
-            accountName: '小龙'
-        }
-    ],
-
-    'POST /api/login/account': (req, res) => {
+    'POST /api/login': (req, res) => {
         const { password, username } = req.body
-        if (password === '123' && username === 'admin') {
+        if (password === 'admin' && username === 'admin') {
             return res.json({
                 status: 'ok',
                 code: 0,
                 data: {
-                    user: {
-                        id: 1,
-                        username: 'admin',
-                        sex: 6
-                    },
-                    token: 'sdfsdfsdfdsf'
+                    phoneNumber: '11111111111111',
+                    merchantList: [{
+                        id: 0,
+                        name: 'admin',
+                        updateTime: '2019-03-19T08:16:32.000+0000'
+                    }],
+                    token: 'v0H9m7Xh4NvN4f17UwzGnlWhRrPO0eQS'
                 }
             })
         } else {
-            return res.status(403).json({
+            return res.json({
                 status: 'error',
-                code: 403
+                code: -1,
+                message: '用户名密码错误'
             })
         }
     }

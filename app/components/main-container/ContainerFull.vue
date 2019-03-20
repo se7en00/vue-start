@@ -9,8 +9,11 @@
         <div v-if="$slots.searchCriteria" class="container-full__searchCriteria" ref="searchCriteria">
             <slot name="searchCriteria"/>
         </div>
-        <div v-if="$slots.search" class="container-full__search" ref="search">
+        <div v-if="$slots.search" class="container-full__search" :style="{flexBasis: searchHeight}" ref="search">
             <slot name="search"/>
+        </div>
+        <div v-if="$slots.note" class="container-full__note" ref="note">
+            <slot name="note"/>
         </div>
         <div class="container-full__body" :class="{'container-full__body--white': $attrs.whiteBg}">
             <slot/>
@@ -23,7 +26,12 @@
 
 <script>
 export default {
-    name: 'main-container-full'
+    name: 'main-container-full',
+    computed: {
+        searchHeight() {
+            return this.$attrs.searchHeight || ''
+        }
+    }
 }
 </script>
 
@@ -72,17 +80,34 @@ export default {
             background-color: #fff;
         }
 
+        @include e(note) {
+            display: flex;
+            flex: 0 0 50px;
+            padding: 0 0 10px;
+        }
+
         @include e(search) {
-            padding: 15px 20px;
+            display: flex;
+            flex-shrink: 0;
+            flex-grow: 0;
+            flex-basis: 34px;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+            width: 100%;
+            .actions {
+                display: inline-flex;
+                /deep/ .el-form-item--mini.el-form-item {
+                    margin-bottom: 0 !important;
+                }
+            }
         }
 
         @include e(body) {
             flex-grow: 1;
-            padding: 0 30px;
+            flex-shrink: 1;
             overflow: auto;
             position: relative;
-            padding-top: 10px;
-            height: calc(100% - 150px);
             @include m(white) {
                 background-color: #fff;
                 padding-top: 50px !important;

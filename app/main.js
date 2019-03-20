@@ -6,7 +6,6 @@ import router from './router'
 import store from './store'// 状态管理
 import '@babel/polyfill'
 import App from './containers/App'
-import menus from './menu/menus'
 
 import '@/scss/global.scss'
 // 核心插件
@@ -36,8 +35,18 @@ new Vue({
     watch: {
         // 监听路由 控制侧边栏显示
         '$route.matched'(val) {
-            const _side = menus.filter(menu => menu.path === val[0].path)
-            this.$store.commit('SYNC_SET_ASIDE_MENU', _side.length > 0 ? _side[0].children : [])
+            const menus = this.$store.getters.menus
+            if (menus && menus.length && val && val.length) {
+                const _side = menus.filter(menu => menu.path === val[0]?.path)
+                this.$store.commit('SYNC_SET_ASIDE_MENU', _side.length > 0 ? _side[0].children : [])
+            }
+        },
+        '$store.getters.menus'(val) {
+            const currentPath = this.$route.matched[0]?.path
+            if (currentPath) {
+                const _side = val.filter(menu => menu.path === currentPath)
+                this.$store.commit('SYNC_SET_ASIDE_MENU', _side.length > 0 ? _side[0].children : [])
+            }
         }
     }
 })

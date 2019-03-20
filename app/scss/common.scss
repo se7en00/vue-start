@@ -16,7 +16,9 @@
 
 //mixin
 @import
-    "helpers/mixin/bem";
+    "helpers/mixin/bem",
+    "helpers/mixin/button",
+    "helpers/mixin/triangle";
 
 //placeholder
 @import "helpers/placeholder";

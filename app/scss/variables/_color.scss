@@ -1,16 +1,18 @@
-$primary-color: hsl(236, 100%, 66%) !default;//主色 #545EFF
+$primary-color: #E7233B !default;//主色 #545EFF
 $lighter-primary-color: hsl(225, 100.0%, 73.5%) !default;
 $lightest-primary-color: hsl(236, 60%, 76%) !default;
 $darker-primary-color: darken($primary-color,2%);
 $darkest-primary-color: darken($primary-color,5%);
 
-$accent-color: #66b1ff; //强调色
+$accent-color: hsl(193, 69%, 55%); //强调色
+$btn-accent-fill: hsl(191, 67%, 95%);
+$btn-accent-border: hsl(191, 67%, 95%);
 
 $error-color: #f56c6c;
-$base-font-color: #606266;
-$base-border-color: #ccc;
+$base-font-color: #4A4A4A;
+$base-border-color: #DDD;
 $white-bg: #fff;
-$body-bg: #F4F8F9;
+$body-bg: #F5F5F5;
 //$body-bg: #F4F8F9;
 
 $grey: #AEBECD !default;
@@ -30,17 +32,18 @@ $border-hover-color-base: $color-text-placeholder;
 $dropDown-border-color: #e7e9f0;
 
 //sidebar
-$sidebar-bg: $lightest-primary-color;//侧栏背景色
+$sidebar-bg: $white-bg;//侧栏背景色
 $sidebar-subItem-bg: transparentize($lighter-primary-color, .3);//侧栏二级菜单背景色
-$sidebar-font-color: #ccc;
-$sidebar-icon-color: #ccc;
-$sidebar-hover-bg: $darker-primary-color;
+$sidebar-font-color: $base-font-color;
+$sidebar-icon-color: $base-font-color;
+$sidebar-active-bg: rgba(231,35,59, 1);
+$sidebar-hover-bg: rgba(231,35,59, 0.1);
 $sidebar-hover-font-color: $white-bg;
 $sidebar-hover-icon-color: $white-bg;
 $sidebar-subItem-circle-bg: $white-bg;
 
 //header顶栏
-$header-bg: hsl(236, 96%, 70%) !default;
+$header-bg: #564E5F !default;
 $header-font-color: rgba(#fff, 0.7);
 $header-icon-color: rgba(#fff, 0.7);
 $header-active-font-color: #fff;
@@ -54,13 +57,26 @@ $main-container-header-title-size: 26px;
 $main-container-header-border-bottom-color: #ebeef5; //主体头部下边线
 //面包屑
 $breadCrumb-bg: #fff;
-$breadCrumb-active-link: #DF3E7B;
+$breadCrumb-active-link: #108EE9;
 
 //dialog
 $dialog-header-border-bottom-color: #ebeef5;
 $dialog-header-title-color: #686f79;
 //login
-$login-bg: $sidebar-bg;
+$login-bg: #333;
 $login-form-bg: hsla(0,0%,100%,.1);
 
-$table-th-color: $label-font-color;
+//按钮主色
+$btn-border-main-color:hsla(353, 80%, 52%, 1);
+$btn-bg-main-color:hsla(0, 0%, 100%, 0.6);
+$btn-border-main-color-hover:hsla(353, 90%, 58%, 1);
+$btn-border-main-color-active:hsla(353, 73%, 50%, 1);
+// 按钮辅助色
+$btn-bg-auxiliary-color:hsla(205, 87%, 49%, 1);
+$btn-font-auxiliary-color: hsla(0, 0%, 100%, 1);
+$btn-border-auxiliary-color: hsla(205, 87%, 49%, 1);
+
+
+//tabel-th-bg
+$table-th-bg-color:hsla(0, 0%, 93%, 1);
+$table-th-color: $base-font-color;

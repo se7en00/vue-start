@@ -9,7 +9,8 @@
                 "transform-vue-jsx",
                 "@babel/plugin-syntax-dynamic-import",
                 "@babel/plugin-transform-runtime",
-                "@babel/plugin-proposal-optional-chaining"
+                "@babel/plugin-proposal-optional-chaining",
+                "@babel/plugin-proposal-class-properties"
             ]
         },
         "production": {
@@ -18,7 +19,8 @@
                 "transform-vue-jsx",
                 "@babel/plugin-syntax-dynamic-import",
                 "@babel/plugin-transform-runtime",
-                "@babel/plugin-proposal-optional-chaining"
+                "@babel/plugin-proposal-optional-chaining",
+                "@babel/plugin-proposal-class-properties"
             ]
         }
     }

@@ -57,6 +57,7 @@ choosePort(HOST, DEFAULT_PORT).then(port => {
     }
     const protocol = process.env.HTTPS === 'true' ? 'https' : 'http'
     const urls = prepareUrls(protocol, HOST, port)
+    process.env.VUE_LOCAL_APP_API = urls
     const appName = require(paths.appPackageJson).name
 
     // WebpackDevServer.addDevServerEntrypoints(config, createDevServerConfig);

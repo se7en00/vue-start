@@ -1,6 +1,6 @@
 let API = {
     LOGIN: {
-        URL: '/user/v1/login',
+        URL: '/api/login',
         omitAlertMsg: true
     },
     LOGIN_OUT: {
@@ -11,6 +11,7 @@ let API = {
     STORE_EDIT: { URL: '/store/v1/edit' },
     STORE_DETAILS: { URL: '/store/v1/detail' },
 
+    PERMISSIONS: { URL: 'api/permissions' },
     // 对账报表下载
     DOWNLOAD_CHECK_SHEET: { URL: '/report/v1/downloadOrderReport' }
 }

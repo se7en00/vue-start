@@ -16,7 +16,7 @@ export default {
      */
     login({ dispatch }, { vm, username, password, isSavePW, route = { name: 'index' } }) {
         // 开始请求登录接口
-        return Axios.post(API.LOGIN.URL, { phoneNumber: username, password }).then(res => {
+        return Axios.post(API.LOGIN.URL, { username, password }).then(res => {
             const { token, phoneNumber, merchantList } = res.data
             if (!merchantList || !merchantList.length) {
                 throw new Error('无效的商户!')
@@ -47,14 +47,12 @@ export default {
      * @param {Object} param context
      * @param {Object} param vm {Object} vue 实例
      */
-    logout({ commit }, { vm }) {
-        Axios.post(API.LOGIN_OUT.URL)
-            .then(() => {
-                localStorage.removeItem('token')
-                localStorage.removeItem('username')
-                commit(TYPES.LOGOUT)
-                vm.$router.push({ name: 'login' })
-            })
+    logout({ dispatch, commit }, { vm }) {
+        localStorage.removeItem('token')
+        localStorage.removeItem('username')
+        commit(TYPES.LOGOUT)
+        dispatch('clearRoles')
+        vm.$router.push({ name: 'login' })
     },
 
     /**

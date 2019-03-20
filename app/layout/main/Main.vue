@@ -24,10 +24,10 @@ export default {
         overflow: hidden;
         @include e(breadCrumb) {
             flex: 0 0 ;
-            padding: 30px 30px 20px;
-            background-color: $breadCrumb-bg;
+            padding: 7px 16px 6px;
+            background-color: $body-bg;
             /deep/ .el-breadcrumb__item:not(:last-of-type) {
-                .router-link-active, .el-breadcrumb__separator {
+                .router-link-active, .el-breadcrumb__separator, .el-breadcrumb__inner.is-link, .el-breadcrumb__inner a {
                     color: $breadCrumb-active-link !important;
                 }
             }

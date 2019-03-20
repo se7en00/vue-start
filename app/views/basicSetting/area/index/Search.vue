@@ -11,13 +11,13 @@
                 placeholder="区域编码/区域名称"/>
         </el-form-item>
 
-        <el-form-item>
+        <!-- <el-form-item>
             <el-button
                 type="primary"
                 @click="handleFormSubmit">
                 搜索
             </el-button>
-        </el-form-item>
+        </el-form-item> -->
 
         <el-form-item style="float: right">
             <el-button

@@ -1,3 +1,4 @@
+@import "../helpers/mixin/bem";
 html, body, #root, #app {
     min-height: 100vh !important;
     height: 100vh;
@@ -8,31 +9,28 @@ body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    font-family: KaiGenGothicSC-Regular, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+    font-family: Microsoft YaHei, PingFang SC,Lucida Grande, Lucida Sans Unicode,Helvetica Neue, Helvetica, Hiragino Sans GB, Arial, sans-serif;
     letter-spacing: 1px;
-    line-height: 2;
+    line-height: 1.5;
+    color: $base-font-color;
     background: $body-bg;
 }
 
-table:not(.el-table__header) {
-    border-spacing: 0 0.5em !important;
-    tr td:first-child {
-        padding-left: 15px !important;
-        border-top-left-radius: 8px;
-        border-bottom-left-radius: 8px;
-    }
+h3 {
+    font-size: 14px;
+    font-weight: bold;
+}
 
-    tr td:last-child {
-        border-top-right-radius: 8px;
-        border-bottom-right-radius: 8px;
-    }
+#nprogress .bar {
+    background: $primary-color !important;
 }
-.el-table__header-wrapper table tr {
-    text-shadow: 1px 1px 2px #ccc;
+
+hr {
+    border: 0;
+    border-bottom: 1px solid #ebeef5;
+    margin: 10px;
 }
-.el-table__body-wrapper table tr {
-    box-shadow: 0 2px 8px -3px rgba(0, 0, 0, 0.21);
-}
+
 
 .edit-btn {
     display: inline-block;
@@ -52,19 +50,60 @@ table:not(.el-table__header) {
     }
 }
 
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    background-color: #ffffff;
-    -webkit-border-radius: 2em;
-    -moz-border-radius: 2em;
-    border-radius: 2em;
-}
-::-webkit-scrollbar-thumb {
-    background-color: #a1abb5;
-    -webkit-border-radius: 2em;
-    -moz-border-radius: 2em;
-    border-radius: 2em;
+.card {
+    @include e(header) {
+        color: #108EE9;
+        position: relative;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ebeef5;
+        .title {
+            font-size: 18px;
+            font-weight: 600;
+            padding: 0 10px;
+        }
+    }
+
+    @include e(body) {
+        .el-table__header, .el-table__body, .el-table__footer {
+            border-collapse: collapse !important;
+        }
+        .el-table {
+            th, tr {
+                background: #fff !important;
+                border-bottom: 1px solid #ebeef5 !important;
+            }
+            @include e(header-wrapper) {
+                table tr {
+                    text-shadow: none !important;
+                }
+            }
+
+            @include e(body-wrapper) {
+                table tr {
+                    box-shadow: none !important;
+                }
+            }
+        }
+
+    }
 }
 
+::-webkit-scrollbar {
+    width:8px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: $body-bg;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.upload-button {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline;
+}

@@ -1,0 +1,60 @@
+$button-hover-tint-percent: 20% !default;
+$button-active-shade-percent: 10% !default;
+
+@mixin button-variant($color, $background-color, $border-color) {
+    color: $color;
+    background-color: $background-color;
+    border-color: $border-color;
+
+    &:hover,
+    &:focus {
+        background: mix($white-bg, $background-color, $button-hover-tint-percent);
+        border-color: mix($white-bg, $border-color, $button-hover-tint-percent);
+        color: $color;
+    }
+
+    &:active {
+        background: mix($base-font-color, $background-color, $button-active-shade-percent);
+        border-color: mix($base-font-color, $border-color, $button-active-shade-percent);
+        color: $color;
+        outline: none;
+    }
+
+    &.is-active {
+        background: mix($base-font-color, $background-color, $button-active-shade-percent);
+        border-color: mix($base-font-color, $border-color, $button-active-shade-percent);
+        color: $color;
+    }
+
+    &.is-disabled {
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+            color: $white-bg;
+            background-color: mix($background-color, $white-bg);
+            border-color: mix($border-color, $white-bg);
+        }
+    }
+}
+@mixin button-variant-danger($color, $background-color, $border-color) {
+    color: $color;
+    background-color: $background-color;
+    border-color: $border-color;
+
+    &:hover,
+    &:focus {
+        background: mix($white-bg, $background-color, $button-hover-tint-percent);
+        border-color: $btn-border-main-color-hover;
+        color: $btn-border-main-color-hover;
+    }
+
+    &:active {
+        background: mix($white-bg, $background-color, $button-hover-tint-percent);
+        border-color: $btn-border-main-color-active;
+        color: $btn-border-main-color-active;
+        outline: none;
+    }
+
+    
+}

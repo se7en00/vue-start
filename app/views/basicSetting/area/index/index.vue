@@ -1,7 +1,6 @@
 <template>
     <main-container>
-        <template slot="title">
-            <label>{{$route.meta.title}}</label>
+        <template slot="search">
             <div class="actions">
                 <el-input
                     size="small"
@@ -14,14 +13,7 @@
                     <el-button slot="append" type="primary" icon="el-icon-search" @click="search"></el-button>
                 </el-input>
                 <el-button
-                    size="small"
-                    type="primary"
-                    icon="el-icon-search"
-                    @click="search">
-                    搜索
-                </el-button>
-                <el-button
-                    type="primary"
+                    type="danger"
                     size="small"
                     @click="createNewArea">
                     添加区域
@@ -32,7 +24,6 @@
             :tableData="list"
             ref="list"/>
         <el-pagination
-            slot="footer"
             v-if="pagination.totalNumber && pagination.totalNumber !== 0"
             @current-change="handleCurrentChange"
             :current-page="pagination.pageIndex"
@@ -61,7 +52,16 @@ export default {
         ...mapState({
             list: state => state.basicSetting.area.list,
             pagination: state => state.basicSetting.area.pagination
-        })
+        }),
+        headers() {
+            const token = localStorage.getItem('token')
+            const phoneNumber = localStorage.getItem('phoneNumber')
+            return {
+                'X-AUTH-TOKEN': token,
+                'X-AUTH-KEY': phoneNumber,
+                'X-MERCHANT-ID': this.currentMerchantId
+            }
+        }
     },
     mounted() {
         this.loadAreaList({ merchantId: this.currentMerchantId })

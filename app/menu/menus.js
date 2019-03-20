@@ -1,19 +1,21 @@
 // 菜单 侧边栏
 const menus = [
-    // { path: '/index', title: '首页', icon: 'fas fa-home' },
-    // {
-    //     title: '支付设置',
-    //     icon: 'fab fa-cc-amazon-pay',
-    //     children: (pre => [
-    //         { path: `${pre}/setting`, title: '支付配置' }
-    //     ])('/payment/merchant')
-    // },
     {
-        title: '基础设置',
-        // icon: 'fas fa-cog',
-        path: '/baseSetting',
+        title: '账务中心',
+        path: '/finance',
+        role: ['finance'],
+        sort: '0',
+        // icon: 'fas fa-money-check-alt',
         children: (pre => [
-            { path: `${pre}/area`, title: '区域管理', icon: 'fas fa-map-marker-alt' }
+            { path: `${pre}/checkAccount`, title: '对账管理', icon: 'fas fa-clipboard-check', role: ['reconciliation'], sort: '0-1' }
+        ])('/finance')
+    }, {
+        title: '基础设置',
+        role: ['basic_setting'],
+        path: '/baseSetting',
+        sort: '1',
+        children: (pre => [
+            { path: `${pre}/area`, title: '区域管理', icon: 'fas fa-map-marker-alt', role: ['area'], sort: '1-1' }
         ])('/baseSetting')
     }
 ]

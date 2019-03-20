@@ -2,20 +2,21 @@
     <el-table
         :data="currentTableData"
         highlight-current-row
+        stripe
         style="width: 100%;">
 
-        <el-table-column label="区域编码" prop="code" align="left" :show-overflow-tooltip="true">
+        <el-table-column label="区域编码" prop="code" align="center" :show-overflow-tooltip="true">
         </el-table-column>
 
-        <el-table-column label="区域名称" prop="name" align="left" :show-overflow-tooltip="true">
+        <el-table-column label="区域名称" prop="name" :show-overflow-tooltip="true">
         </el-table-column>
 
-        <el-table-column label="联系电话" prop="contactNumber" align="left" :show-overflow-tooltip="true">
+        <el-table-column label="联系电话" prop="contactNumber" :show-overflow-tooltip="true">
         </el-table-column>
 
         <el-table-column label="操作" align="center" fixed="right">
             <template slot-scope="scope">
-                <el-button size="mini" type="info" icon="el-icon-edit" @click="edit(scope.row.id)" circle title="编辑"></el-button>
+                <el-button size="mini" type="text" @click="edit(scope.row.id)" title="编辑">编辑</el-button>
                 <el-popover
                     placement="top"
                     width="160"
@@ -25,7 +26,7 @@
                         <el-button size="mini" type="text" @click="closeConfirmPopover(scope.row.id)">取消</el-button>
                         <el-button type="primary" size="mini" @click="removeStore(scope)">确定</el-button>
                     </div>
-                    <el-button size="mini" type="danger" icon="el-icon-delete" @click="openConfirmPopover(scope.row.id)" circle slot="reference" title="删除"></el-button>
+                    <el-button size="mini" type="text" @click="openConfirmPopover(scope.row.id)" slot="reference" title="删除">删除</el-button>
                 </el-popover>
             </template>
         </el-table-column>
@@ -34,7 +35,9 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import confirmPopover from '@/views/mixins/confirmPopover'
 export default {
+    mixins: [confirmPopover],
     props: {
         tableData: {
             default: () => []
@@ -45,8 +48,7 @@ export default {
     },
     data() {
         return {
-            currentTableData: [],
-            storeIdsMap: {}
+            currentTableData: []
         }
     },
 

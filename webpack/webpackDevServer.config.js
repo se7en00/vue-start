@@ -1,11 +1,11 @@
 // const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 // const ignoredFiles = require('react-dev-utils/ignoredFiles');
-const apiMocker = require('webpack-api-mocker');
-const config = require('./webpack.config.dev');
-const paths = require('./config/paths');
+const apiMocker = require('mocker-api')
+const config = require('./webpack.config.dev')
+const paths = require('./config/paths')
 
-const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
-const host = process.env.HOST || '127.0.0.1';
+const protocol = process.env.HTTPS === 'true' ? 'https' : 'http'
+const host = process.env.HOST || '127.0.0.1'
 
 module.exports = () => ({
     // WebpackDevServer 2.4.3 introduced a security fix that prevents remote
@@ -97,6 +97,6 @@ module.exports = () => ({
     //     menu.use(errorOverlayMiddleware());
     // }
     before(app) {
-        apiMocker(app, paths.mockerJS);
+        apiMocker(app, paths.mockerJS)
     }
-});
+})

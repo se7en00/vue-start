@@ -1,8 +1,6 @@
 <template>
-    <el-menu-item :index="menu.path || uniqueId">
+    <el-menu-item :index="menu.path || uniqueId" style="padding-left: 16px">
         <i v-if="menu.icon" :class="menu.icon"></i>
-        <!--<d2-icon-svg v-else-if="menu.iconSvg" :name="menu.iconSvg"/>-->
-        <i v-else class="dot-circle"></i>
         <span class="title" slot="title">{{menu.title || '未命名菜单'}}</span>
     </el-menu-item>
 </template>
@@ -25,15 +23,3 @@ export default {
     }
 }
 </script>
-<style lang="scss">
-    .title {
-        margin-left: 15px;
-    }
-    .dot-circle {
-        display: inline-block;
-        width: 5px;
-        height: 5px;
-        background-color: $sidebar-subItem-circle-bg;
-        border-radius: 50%;
-    }
-</style>

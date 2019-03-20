@@ -3,7 +3,7 @@
         <div class="loginContainer__layer loginContainer__layer--bg" id="login"></div>
         <div class="loginContainer__layer">
             <!-- logo部分 -->
-            <div class="loginContainer__logo-group"/>
+            <!--<div class="loginContainer__logo-group"/>-->
             <!-- 表单部分 -->
             <div class="loginContainer__form-group">
                 <div class="loginContainer__errorMsg">{{errorMsg}}</div>
@@ -50,8 +50,8 @@ export default {
         return {
             // 表单
             formLogin: {
-                username: util.cookies.get('username') || '',
-                password: util.cookies.get('pwd') || '',
+                username: util.cookies.get('username') || 'admin',
+                password: util.cookies.get('pwd') || 'admin',
                 isSavePW: util.cookies.get('isSavePW') === 'true'
             },
             isLoading: false,
@@ -96,8 +96,7 @@ export default {
                         vm: this,
                         username: this.formLogin.username,
                         password: this.formLogin.password,
-                        isSavePW: this.formLogin.isSavePW,
-                        route: { name: 'payment-merchant-index' }
+                        isSavePW: this.formLogin.isSavePW
                     }).catch(error => {
                         this.errorMsg = error.message
                     })
@@ -135,8 +134,9 @@ export default {
     }
     @include e(errorMsg) {
         position: absolute;
+        text-align: center;
         top: 50px;
-        left: 120px;
+        width: 340px;
         color: $error-color;
         font-size: 14px;
     }
@@ -153,7 +153,7 @@ export default {
 
     @include e(form-group) {
         position: relative;
-        width: 300px;
+        width: 340px;
 
         /deep/ .el-input__inner {
             padding-left: 35px;

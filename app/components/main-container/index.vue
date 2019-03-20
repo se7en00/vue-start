@@ -5,6 +5,7 @@
             <slot v-if="$slots.title" name="title" slot="title"/>
             <slot v-if="$slots.searchCriteria" name="searchCriteria" slot="searchCriteria"/>
             <slot v-if="$slots.search" name="search" slot="search"/>
+            <slot v-if="$slots.note" name="note" slot="note"/>
             <slot/>
             <slot v-if="$slots.footer" name="footer" slot="footer"/>
         </container-full>
@@ -40,6 +41,7 @@ export default {
 .container-component {
     display: flex;
     flex: 1;
+    padding: 16px 16px 40px;
     overflow: hidden;
 }
 </style>

@@ -6,14 +6,17 @@ import createLogger from 'vuex/dist/logger'
 import menu from './menu'
 import account from './account'
 import basicSetting from './basicSetting'
+import finance from './finance'
 import getters from './getters'// Vuex 依赖 Promise
 Vue.use(Vuex)
 const storeTree = {
+    namespaced: true,
     getters,
     modules: {
         menu,
         account,
-        basicSetting
+        basicSetting,
+        finance
     }
 }
 

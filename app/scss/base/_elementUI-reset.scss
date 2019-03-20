@@ -9,26 +9,36 @@
     background-color: transparent !important;
     th {
         border-bottom: 0!important;
-        padding: 5px 0;
         color: $table-th-color;
-    }
-    th, tr:not(&__row) {
-        background-color: transparent !important;
-        //background-image: linear-gradient(#95C8FE, #66b1ff ,#409EFF);
-    }
-    .el-table__fixed-header-wrapper tr {
-        background-color: $body-bg !important;
-    }
-    @include e(header) {
-        position: relative;
-        border-spacing: 0 !important;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 20px;
+        background-color: $table-th-bg-color;
     }
 
-    @include m(medium) {
-        td {
-            padding: 15px 0 !important;
-        }
+    tr {
+        height: 48px !important;
     }
+
+    td {
+        border-bottom: none !important;
+    }
+    &:before {
+        background: transparent !important;
+    }
+    @include e(fixed-right-patch) {
+        background-color: #ededed !important;
+    }
+}
+//
+//.el-table__row.el-table__row--striped.expanded{
+//    + tr > td.el-table__expanded-cell {
+//        background-color: #FAFAFA;
+//    }
+//}
+
+.container-full__body--white .el-table .el-table__fixed-header-wrapper tr {
+    background-color:  $table-th-bg-color !important;
 }
 
 .el-form {
@@ -46,24 +56,69 @@
 }
 
 .el-pagination {
+    background-color: $white-bg;
+    padding: 10px 16px;
+    text-align: right;
+    font-weight: 400;
     .btn-next {
         border: 1px solid $border-color-base !important;
         padding-left: 6px !important;
         margin-left: 5px;
+        &:hover {
+            background: $primary-color !important;
+            color: #fff;
+        }
     }
     .btn-prev {
         border: 1px solid $border-color-base !important;
         padding-right: 6px !important;
         margin-right: 5px;
+        &:hover {
+            background: $primary-color !important;
+            color: #fff;
+        }
+    }
+
+    .el-pager {
+        li {
+            &.active, &:hover {
+                border-color: $primary-color !important;
+                background: $primary-color !important;
+                color: #fff;
+            }
+            border: 1px solid $border-color-base !important;
+            & + li {
+                margin-left: 5px !important;
+            }
+        }
     }
 }
+
 
 .el-menu.el-menu--horizontal {
     border-bottom: none !important;
 }
 
-.el-dialog {
 
+.el-dialog {
+    &.tableDialog {
+       .el-dialog__body {
+            background: $body-bg !important;
+        }
+        ::-webkit-scrollbar {
+            width:8px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: $body-bg;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+    }
     //重置dialog的样式
     @include e(header) {
         display: flex;
@@ -76,15 +131,6 @@
         font-size:16px;
         font-weight: bold;
         //color: $main-container-header-title-color;
-    }
-
-    @include e(body) {
-        .el-form-item {
-            @include e(label) {
-                //color:#606266;
-                //letter-spacing:0
-            }
-        }
     }
 
     @include e(footer) {
@@ -100,29 +146,48 @@
     }
 }
 
-.el-pager {
-    li {
-        &.active {
-            border-color: $primary-color !important;
-        }
-        border: 1px solid $border-color-base !important;
-        & + li {
-            margin-left: 5px !important;
-        }
-    }
-}
-
 .el-tree-node {
     white-space: normal;
     padding: 3px 0;
-}
-
-.el-tree-node__content {
-    height: 100% !important;
+    @include m(content) {
+        height: 100% !important;
+    }
 }
 
 .el-message--error, .el-message--success {
     position: absolute;
     top: 65px;
-    z-index: 1 !important;
+    z-index: 9999 !important;
+}
+
+// .el-button {
+//     @include m(accent) {
+//         font-size: 14px !important;
+//         @include button-variant($accent-color, $btn-accent-fill, $btn-accent-border);
+//     }
+// }
+.el-button {
+    @include m(small) {
+        font-size: 12px !important;
+        padding: 0px 16px;
+        height: 30px;
+        border-radius: 2px;
+    }
+    @include m(mini) {
+        font-size: 12px !important;
+        padding: 0px 10px;
+        height: 23px;
+        border-radius: 2px;
+    }
+    @include m(primary) {
+        @include button-variant($btn-font-auxiliary-color, $btn-bg-auxiliary-color, $btn-border-auxiliary-color);
+    }
+    @include m(danger) {
+        @include button-variant-danger($btn-border-main-color, $btn-bg-main-color, $btn-border-main-color);
+    }
+}
+
+.el-breadcrumb {
+    font-size: 12px;
+    line-height: 17px;
 }

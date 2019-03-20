@@ -1,5 +1,3 @@
 export * from './cheekSheet'
 export * from './employee'
 export { default as API } from './API'
-export * from './equipment'
-export * from './ad'

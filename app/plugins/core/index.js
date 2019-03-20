@@ -27,13 +27,14 @@ export default {
         Vue.prototype.$merchantList = []
 
         Vue.prototype.$mappingValue = utils.helps.mappingValue
+        Vue.prototype.$fMoney = utils.helps.formatMoney
         // 当前环境
         Vue.prototype.$env = process.env.NODE_ENV
         // 当前的 baseUrl
         // 简化代码中 process.env.BASE_URL 取值
         Vue.prototype.$baseUrl = process.env.BASE_URL
         // 当前API地址
-        Vue.prototype.$appAPI = process.env.VUE_APP_API
+        Vue.prototype.$appAPI = process.env.VUE_APP_API || process.env.VUE_LOCAL_APP_API
         // Day.js https://github.com/iamkun/dayjs#readme
         Vue.prototype.$dayjs = dayjs
 

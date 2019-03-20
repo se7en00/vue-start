@@ -2,7 +2,11 @@ import actions from './actions'
 import mutations from './mutations'
 
 const state = {
-    asideMenu: [],
+    roles: [],
+    headerMenus: [],
+    asideMenus: [],
+    menus: [],
+    routes: [],
     asideCollapse: false // 侧边栏默认折叠状态
 }
 

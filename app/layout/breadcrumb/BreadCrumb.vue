@@ -1,5 +1,5 @@
 <template>
-    <el-breadcrumb separator=">">
+    <el-breadcrumb>
         <transition-group name="slide">
             <el-breadcrumb-item
                 v-for="(item, index) in levelList"

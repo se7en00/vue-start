@@ -18,11 +18,11 @@ export const ORDER_STATUS = [
 export const ORDER_CATEGORY = [
     {
         label: '消费',
-        value: '0'
+        value: 0
     },
     {
         label: '退款',
-        value: '1'
+        value: 1
     }
 ]
 
@@ -31,29 +31,55 @@ export const ORDER_CATEGORY = [
  */
 export const STATEMENT_STATUS = [
     {
-        label: '未对账',
-        value: '0'
+        label: '金额不一致',
+        colorType: 'danger',
+        value: 0
     },
     {
-        label: '已对账',
-        value: '1'
+        label: '短款',
+        colorType: 'cashShort',
+        value: 1
+    },
+    {
+        label: '长款',
+        colorType: 'cashOver',
+        value: 2
+    },
+    {
+        label: '对账成功',
+        colorType: 'success',
+        value: 3
+    },
+    {
+        label: '对账成功(平)',
+        colorType: 'success2',
+        value: -1
     }
 ]
+
+export const STATEMENT_STATUS_MAPPING = STATEMENT_STATUS.reduce((map, item) => R.assoc(item.colorType, item.value, map), {})
+/**
+ * 对账状态 对应标签的颜色
+ */
+export const STATEMENT_STATUS_COLORFUL = STATEMENT_STATUS.reduce((map, item) => R.assoc(item.value, item.colorType, map), {})
 
 /**
  * 对账结果
  */
 export const STATEMENT_RESULT = [
     {
-        label: '不一致',
+        label: '金额不一致',
         value: '0'
     },
     {
-        label: '一致',
+        label: '对账成功',
         value: '1'
     }
 ]
 
+/**
+ * 支付状态
+ */
 export const PAYMENT_STATUS = [
     {
         label: '未完成',
@@ -65,39 +91,64 @@ export const PAYMENT_STATUS = [
     }
 ]
 
+/**
+ *  结算方式
+ */
 export const PAYMENT_CATEGORY = {
     card: '银行卡支付',
     valuecard: '储值卡支付',
     cash: '现金'
 }
-
-export const PAY_CHANNEL = [
+/**
+ *  支付方式
+ */
+export const PAY_TYPE = [
     {
-        label: '快钱',
-        value: 'BILL99'
+        label: '支付宝',
+        value: 'alipay'
     },
     {
-        label: '支付宝直连',
-        value: 'ALIPAY'
-    },
-    {
-        label: '微信直连',
-        value: 'WXPAY'
+        label: '微信',
+        value: 'wxpay'
     },
     {
         label: '银联二维码',
-        value: 'UNIONPAY'
+        value: 'unionpay'
+    }
+]
+/**
+ *  收单通道
+ */
+export const PAY_CHANNEL = [
+    {
+        label: '快钱',
+        value: 'bill99'
+    },
+    {
+        label: '支付宝',
+        value: 'alipay'
+    },
+    {
+        label: '微信',
+        value: 'wxpay'
+    },
+    {
+        label: '银联二维码',
+        value: 'unionpay'
     },
     {
         label: '富友',
-        value: 'FUIOU'
+        value: 'fuiou'
     },
     {
         label: '银联商务 ',
-        value: 'CHINAUMS'
+        value: 'chinaums'
     }
 ]
 
+/**
+ * 支付状态
+ */
 export const PAY_STATUS = [
     {
         label: '处理中',
